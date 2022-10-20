@@ -10,6 +10,11 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"/>
+
+     <!-- CSS File -->
+     <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}" />
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
@@ -17,7 +22,7 @@
     <!-- Scripts -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <script src="{{ mix('js/app.js') }}" defer></script>
-
+    @livewireStyles
 </head>
 
 <body>
@@ -83,6 +88,8 @@
             @yield('content')
         </main>
     </div>
+
+    @livewireScripts
 </body>
 
 </html>
