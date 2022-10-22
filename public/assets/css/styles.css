@@ -121,6 +121,15 @@ main {
   align-items: center;
 }
 
+.left a{
+  color: inherit;
+  text-decoration: none;
+}
+
+header img{
+  vertical-align: baseline;
+}
+
 .left #menu {
   padding: 0 7px;
   cursor: pointer;

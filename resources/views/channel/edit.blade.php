@@ -1,16 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
-@section('conten')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Dashboard') }}</div>
+@section('content')
+    <div class="center" style="margin: 0 auto; width: 70%">
+        <div class="card">
+            <div class="card-header">{{ __('Edit Channel') }}</div>
 
-                    <div class="card-body">
-                        <livewire:channel.edit-channel :channel='$channel'/>
-                    </div>
-                </div>
+            <div class="card-body">
+                <livewire:channel.edit-channel :channel='$channel' />
             </div>
         </div>
     </div>

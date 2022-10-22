@@ -3,26 +3,30 @@
 
         <div class="row mb-3">
             <label for="channel" class="col-md-4 col-form-label text-md-end">{{ __('Channel Name') }}</label>
-
             <div class="col-md-6">
                 <input type="text" class="form-control" wire:model='channel.name'>
             </div>
+            @error('channel.name')
+                <span style="display:block; width: 70%; margin:auto; background:none; border:none" class="alert alert-danger text-center">
+                    <strong>{{ $message }}</strong>
+                </span pan>
+            @enderror
         </div>
 
-        <div class="row mb-3">
-            <label for="channel" class="col-md-4 col-form-label text-md-end">{{ __('Channel Name') }}</label>
 
-            <div class="col-md-6">
-                <input type="text" class="form-control" wire:model='name'>
-            </div>
-        </div>
+
         <div class="row mb-3">
             <label for="channel" class="col-md-4 col-form-label text-md-end">{{ __('Channel Description') }}</label>
 
             <div class="col-md-6">
-                <textarea cols="30" rows="4" class="form-control"></textarea>
+                <textarea style="resize: none" cols="30" rows="4" class="form-control" wire:model='channel.description'></textarea>
             </div>
         </div>
+        @error('description')
+            <span style="display:block; width: 70%; margin:auto; background:none; border:none" class="alert alert-danger text-center">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
 
         <div class="row mb-0">
             <div class="col-md-6 offset-md-4">

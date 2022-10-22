@@ -32,7 +32,7 @@
             </div>
             <hr>
             <div class="op">
-            <a href="" class="sub-menu-link">
+            <a href="{{ route('channel.edit', Auth::user()->channel) }}" class="sub-menu-link">
               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAABBUlEQVQ4jcXSO0pDQRgF4A+JUTGpRdC7iHSSuADdh48diG5A6yDEDagptZFgOtehsbhmA9qYKhbzX7gJN7ESDwzD/zpzZs7wB9hHH2NM8IF7tH8brKGHNxxhB6uxH2OE6+irRA9PaCyoNzAIkkrZr6XhDM/4ij2LfBPvVdfph+wCQ5xhE+dBUuAEd/MEY+muBT5LapoRF8ikh53BBPVSPIiTG7iIuEAd38sUbOAG09LqYb2kIC8GV2J/wWE0DbGFlvQGLWxHfg0H0T+DjuT/FR5KxOWDHnEZfXvzBCR/p5KlVehEvbugrhYkI8mqXeknZjiNfNeSn1igLfmcS+7kuF0k+//xA4xOOElCynOxAAAAAElFTkSuQmCC">              <span></span>
               <p>Your channel</p>
               <span></span>
@@ -59,3 +59,7 @@
         
     </div>
 </header>
+
+@section('scripts')
+    <script src="{{ asset('assets/js/app.js') }}"></script>
+@endsection
