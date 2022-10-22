@@ -40,7 +40,7 @@
                     <span></span>
                 </a>
 
-                <a href="" class="sub-menu-link">
+                <a href="{{ route('video.create',['channel' => Auth::user()->channel ]) }}" class="sub-menu-link">
                     <img
                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAB6klEQVRIieXVT4hPURQH8M9vxjRmGAxjMWMxxUo/JSTZKLMiG8kgYUNKVkosJCX1o1nYqJEskI0UQrGTLCSF0iQTCzKMFA1CEhbnvvr1/J55NSv51uvd8873/Ln3nHse/zoqJXnN2IlpSR7DyYkGb65bz8cP9GM/fk3UeR8+YEOS19c5XZLWnUneinvoLut8JT7jGF5jCB9xNunbMYBhXMZVHMKTMkGaU+ZHk1zFXnQ04LZiXXpLgW6X2cFmjIhzL4sd+Io1ZQ0eYXedvA+30FvAP4Fz4zltw1ysxrskZ6jhAd5iSwPbXtG6czCjKMAgvuA9jud0NRwUNXmIi5iV41zAc3wSRwaa6gitOICZ2FOQxBCW42UKtLBOtxHzcAXTs4+Tcg7aRH+P4WdBkCbRqt/Tk6EzPR15coZhbBf9PFjgfKmoxRQsStwMd9OuVmC0wB5RqDcpyww1PBYXb20Dm2WiMSbnFU1/co3gFbblvj3DYnHGeezCNXz7W+YZBvAUPWXICQvE7vrHI1ZEpxxOch+OoKsBtypqVUULborZNC66RfFOiVoMigt2JunbcT9lfDq9b+COxjOrMMh1UTyi8CNp3SMuY0uSN+ESpjZyVPaP1oUXOJ92sAqzyxiWDVARMyibT6NiPP8H+A3qpWHBFyXhGAAAAABJRU5ErkJggg==">
                     <p>Youtube studio</p>

@@ -1,4 +1,7 @@
 <div>
+    @if ($channel->image)
+        <img src="{{ asset('images/'.$channel->image) }}"class="img-thumbnail"/>
+    @endif
     <form wire:submit.prevent='update'>
 
         <div class="row mb-3">
@@ -45,6 +48,7 @@
                 <img class="img-thumbnail" src="{{ $image->temporaryUrl() }}">
             @endif
             </div>
+            
         </div>
         @error('image')
             <span style="display:block; width: 70%; margin:auto; background:none; border:none"

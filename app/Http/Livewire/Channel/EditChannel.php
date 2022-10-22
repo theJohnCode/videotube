@@ -3,10 +3,11 @@
 namespace App\Http\Livewire\Channel;
 
 use App\Models\Channel;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
+use Intervention\Image\Facades\Image;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class EditChannel extends Component
 {
@@ -49,10 +50,20 @@ class EditChannel extends Component
         ]);
 
         if ($this->image) {
-           
+            if ($this->channel->image) {
+                unlink(storage_path() . '/app/images/' . $this->channel->image);
+            }
             $image = $this->image->storeAs('images', $this->channel->slug . uniqid(true) . '.png');
+            $imageImage = explode('/', $image)[1];
+            // resize image and convert to PNG format
+            $img = Image::make(storage_path() . '/app/' . $image)
+                ->encode('png')
+                ->resize(100, 100, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                })->save();
 
-            $this->channel->update(['image' => $image]);
+            $this->channel->update(['image' => $imageImage]);
         }
 
         toast('Channel Update Successful', 'success');
