@@ -7,7 +7,8 @@
                 <input type="text" class="form-control" wire:model='channel.name'>
             </div>
             @error('channel.name')
-                <span style="display:block; width: 70%; margin:auto; background:none; border:none" class="alert alert-danger text-center">
+                <span style="display:block; width: 70%; margin:auto; background:none; border:none"
+                    class="alert alert-danger text-center">
                     <strong>{{ $message }}</strong>
                 </span pan>
             @enderror
@@ -23,7 +24,31 @@
             </div>
         </div>
         @error('description')
-            <span style="display:block; width: 70%; margin:auto; background:none; border:none" class="alert alert-danger text-center">
+            <span style="display:block; width: 70%; margin:auto; background:none; border:none"
+                class="alert alert-danger text-center">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+
+        <div class="row mb-3">
+            <label for="image" class="col-md-4 col-form-label text-md-end">{{ __('Channel Image') }}</label>
+
+            <div class="col-md-6">
+                <input type="file" class="form-control" wire:model='image'>
+            </div>
+        </div>
+        
+        <div class="row mb-3">
+            <label for="" class="col-md-4"></label>
+            <div class="col-md-6">
+            @if ($image)
+                <img class="img-thumbnail" src="{{ $image->temporaryUrl() }}">
+            @endif
+            </div>
+        </div>
+        @error('image')
+            <span style="display:block; width: 70%; margin:auto; background:none; border:none"
+                class="alert alert-danger text-center">
                 <strong>{{ $message }}</strong>
             </span>
         @enderror
