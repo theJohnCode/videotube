@@ -1,7 +1,18 @@
 @extends('layouts.app')
 
+
+@section('navbar')
+    @include('layouts.header')
+@endsection
+
+
+@section('sidebar')
+    @include('layouts.sidebar')
+@endsection
+
 @section('content')
-<div class="container">
+    @include('includes.videos')
+{{-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -14,10 +25,10 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    <livewire:channel.edit-channel />
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 @endsection
