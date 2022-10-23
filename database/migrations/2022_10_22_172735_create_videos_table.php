@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('url')->nullable();
             $table->string('processed_file')->nullable();
             $table->enum('visibility', ['public', 'private', 'unlisted'])->default('private');
-            $table->string('thumbnail')->nullable();
+            $table->string('thumbnail_image')->nullable();
             $table->string('processing_percentage')->nullable();
 
             $table->boolean('processed')->default(false);
