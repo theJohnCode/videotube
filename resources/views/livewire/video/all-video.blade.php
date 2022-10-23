@@ -28,7 +28,7 @@
                                         </a>
                                     </div>
                                     <div class="col-md-6">
-                                        <a class="btn btn-danger btn-sm">
+                                        <a wire:click.prevent='delete(`{{ $video->uid }}`)' class="btn btn-danger btn-sm">
                                             <span class="material-icons">delete</span>
                                         </a>
                                     </div>

@@ -3,6 +3,8 @@
 namespace App\Http\Livewire\Video;
 
 use App\Models\Channel;
+use App\Models\Video;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -16,7 +18,20 @@ class AllVideo extends Component
     public function render()
     {
         return view('livewire.video.all-video')
-            ->with('videos', auth()->user()->channel->videos()->paginate(1))
+            ->with('videos', auth()->user()->channel->videos()->paginate(5))
             ->extends('layouts.master');
+    }
+
+    public function delete(Video $video)
+    {
+        $deleted = Storage::disk('videos')->deleteDirectory($video->uid);
+
+        if ($deleted) {
+            $video->delete();
+        }
+
+        toast('Video deleted successfully', 'success');
+
+        return redirect()->back();
     }
 }
