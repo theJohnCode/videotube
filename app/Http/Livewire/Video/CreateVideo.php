@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire\Video;
 
+use App\Jobs\ConvertVideoForStreaming;
+use App\Jobs\CreateThumbNailFromVideo;
 use App\Models\Video;
 use App\Models\Channel;
 use Livewire\Component;
@@ -46,6 +48,11 @@ class CreateVideo extends Component
             'visibility' => 'private',
             'url' => explode('/', $path)[1],
         ]);
+
+        // dispatch Jobs
+
+        CreateThumbNailFromVideo::dispatch($this->video);
+        ConvertVideoForStreaming::dispatch($this->video);
 
         // go to edit route
         return redirect()->route('video.edit', [
