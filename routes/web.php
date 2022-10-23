@@ -20,8 +20,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/channel/{channel}/edit', [ChannelController::class, 'edit'])->name('channel.edit');
 });
 
-Route::group(['middleware' => ['auth'], 'prefix' => 'videos'], function () {
-    Route::get('/{channel}/create', CreateVideo::class)->name('video.create');
-    Route::get('/{channel}/{video}/edit', EditVideo::class)->name('video.edit');
-    Route::get('/{channel}', AllVideo::class)->name('video.all');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/videos/{channel}/create', CreateVideo::class)->name('video.create');
+    Route::get('/videos/{channel}/{video}/edit', EditVideo::class)->name('video.edit');
+    Route::get('/vids', AllVideo::class)->name('video.all');
 });

@@ -22,7 +22,7 @@
       <i class="material-icons">history</i>
       <span>History</span>
     </a>
-    <a class="nav-link">
+    <a href="{{ route('video.all') }}" class="nav-link">
       <i class="material-icons">play_arrow</i>
       <span>Your Videos</span>
     </a>

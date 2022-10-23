@@ -2,13 +2,21 @@
 
 namespace App\Http\Livewire\Video;
 
+use App\Models\Channel;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class AllVideo extends Component
 {
+    use WithPagination;
+
+    protected $paginationTheme = 'bootstrap';
+
+
     public function render()
     {
         return view('livewire.video.all-video')
-        ->extends('layouts.master');
+            ->with('videos', auth()->user()->channel->videos()->paginate(1))
+            ->extends('layouts.master');
     }
 }
