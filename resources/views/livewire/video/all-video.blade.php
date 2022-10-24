@@ -30,7 +30,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <a wire:click.prevent='delete(`{{ $video->uid }}`)' class="btn btn-danger btn-sm">
-                                            <span class="material-icons">delete</span>
+                                            <span class="material-icons text-white">delete</span>
                                         </a>
                                     </div>
                                 </div>

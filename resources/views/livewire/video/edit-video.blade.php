@@ -1,4 +1,4 @@
-<div>
+<div @if ($video->processing_percentage < 100) wire:poll @endif>
     <div class="center" style="margin: 0 auto; width: 70%">
         <div class="card">
             <div class="card-header">{{ __('Edit Video') }}</div>
