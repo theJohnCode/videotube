@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('channel_id')->constrained('channels')->cascadeOnDelete();
             $table->string('title');
             $table->string('description')->nullable();
+            $table->integer('views')->default(0);
             $table->string('uid');
             $table->string('url')->nullable();
             $table->string('processed_file')->nullable();

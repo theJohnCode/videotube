@@ -4,11 +4,14 @@
         <div class="card">
             <div class="card-header">{{ __('Your Videos') }}</div>
             <div class="card-body">
+                @if (count($videos) > 0)
                 <div class="container">
                     @foreach ($videos as $video)
                         <div class="row my-2">
                             <div class="col-md-2">
+                                <a href="{{ route('video.watch',$video) }}">
                                 <img src="{{ asset($video->thumbnail) }}" class="img-thumbnail" alt="{{ $video->title }}">
+                                </a>
                             </div>
                             <div class="col-md-3 align-self-center">
                                 <h5>{{ $video->title }}</h5>
@@ -40,6 +43,9 @@
                         </div>
                     @endforeach
                 </div>
+                @else
+                <h4>No Video is available</h4>
+                @endif
             </div>
         </div>
         {{ $videos->links() }}

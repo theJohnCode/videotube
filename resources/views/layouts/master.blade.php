@@ -22,6 +22,7 @@
 
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
+    @stack('customCSS')
     @livewireStyles
 </head>
 
@@ -39,7 +40,7 @@
 
     </main>
 
-
+    @stack('customJs')
     @livewireScripts
     <script src="{{ asset('assets/js/app.js') }}"></script>
     <script src="{{ mix('js/app.js') }}" defer></script>

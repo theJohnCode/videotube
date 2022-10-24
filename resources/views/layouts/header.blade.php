@@ -9,7 +9,7 @@
     <div class="search center">
         <form action="">
             <input type="text" placeholder="Search" />
-            <button><i class="material-icons">search</i></button>
+            <button><i class="material-icons" style="line-height: 2">search</i></button>
         </form>
         <i class="material-icons mic">mic</i>
     </div>
