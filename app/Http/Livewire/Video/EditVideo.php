@@ -4,10 +4,13 @@ namespace App\Http\Livewire\Video;
 
 use App\Models\Channel;
 use App\Models\Video;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Component;
 
 class EditVideo extends Component
 {
+    use AuthorizesRequests;
+
     public Channel $channel;
     public Video $video;
 
@@ -31,6 +34,8 @@ class EditVideo extends Component
 
     public function update()
     {
+        $this->authorize('update',$this->video);
+        
         $this->validate();
 
         $this->video->update([

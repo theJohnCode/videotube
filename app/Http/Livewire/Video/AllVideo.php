@@ -2,28 +2,37 @@
 
 namespace App\Http\Livewire\Video;
 
-use App\Models\Channel;
 use App\Models\Video;
-use Illuminate\Support\Facades\Storage;
+use App\Models\Channel;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class AllVideo extends Component
 {
-    use WithPagination;
+    use WithPagination,
+        AuthorizesRequests;
 
     protected $paginationTheme = 'bootstrap';
 
+    public $channel;
+    public function mount(Channel $channel)
+    {
+        $this->channel = $channel;
+    }
 
     public function render()
     {
         return view('livewire.video.all-video')
-            ->with('videos', auth()->user()->channel->videos()->paginate(5))
+            ->with('videos', $this->channel->videos()->paginate(5))
             ->extends('layouts.master');
     }
 
     public function delete(Video $video)
     {
+        $this->authorize('delete', $video);
+
         $deleted = Storage::disk('videos')->deleteDirectory($video->uid);
 
         if ($deleted) {

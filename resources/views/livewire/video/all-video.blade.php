@@ -21,6 +21,7 @@
                                 {{ $video->created_at->format('d/m/y') }}
                             </div>
                             <div class="col-md-2">
+                                @if (auth()->user()->owns($video))
                                 <div class="row">
                                     <div class="col-md-6">
                                         <a href="{{ route('video.edit',['channel'=>Auth::user()->channel, 'video' => $video->uid]) }}" class="btn btn-light btn-sm">
@@ -33,7 +34,7 @@
                                         </a>
                                     </div>
                                 </div>
-
+                                @endif
 
                             </div>
                         </div>

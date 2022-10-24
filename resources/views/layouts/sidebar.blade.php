@@ -22,7 +22,7 @@
       <i class="material-icons">history</i>
       <span>History</span>
     </a>
-    <a href="{{ route('video.all') }}" class="nav-link">
+    <a href="{{ route('video.all',['channel' => Auth::user()->channel]) }}" class="nav-link">
       <i class="material-icons">play_arrow</i>
       <span>Your Videos</span>
     </a>
