@@ -6,7 +6,7 @@
             <div class="card-header">{{ __('Edit Channel') }}</div>
 
             <div class="card-body">
-                <livewire:channel.edit-channel :channel='$channel' />
+                <livewire:channel.edit-channel :channel="$channel" />
             </div>
         </div>
     </div>

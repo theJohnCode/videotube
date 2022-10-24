@@ -58,7 +58,7 @@
                                 <i class="material-icons">notifications_active</i>
                             </div>
                             <div class="col-md-3">
-                                <i class="material-symbols-outlined">thumb_up</i>
+                                <livewire:video.voting-up :video="$video" />
                             </div>
                         </div>
                     </div>
@@ -67,9 +67,7 @@
                         <div class="row">
                             <div class="col-md-3 d-flex">
                                 <p>dislikes</p>
-                                <i class="material-symbols-outlined">
-                                    thumb_down
-                                </i>
+                                <livewire:video.voting-down :video="$video">
                             </div>
 
                             <div class="col-md-3 d-flex">
@@ -105,10 +103,10 @@
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-2">
-                        <p class="fw-bold">7 views</p>
+                        <p class="fw-bold">{{ $video->views }} views</p>
                     </div>
                     <div class="col-md-3">
-                        <p class="fw-bold">Oct 15, 2022</p>
+                        <p class="fw-bold">{{ $video->upload_Date }}</p>
                     </div>
                 </div>
             </div>

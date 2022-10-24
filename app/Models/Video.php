@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Carbon\Carbon;
+use App\Models\Dislike;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Video extends Model
 {
@@ -28,5 +30,38 @@ class Video extends Model
         } else {
             return '/videos/' . 'dummy.jpg';
         }
+    }
+
+    public function getUploadDateAttribute()
+    {
+        $carbon = new Carbon($this->created_at);
+
+        return $carbon->toFormattedDateString();
+    }
+
+    // to be use later
+    public function interactions()
+    {
+        return $this->hasMany(Interaction::class);
+    }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
+    public function dislikes()
+    {
+        return $this->hasMany(Dislike::class);
+    }
+
+    public function userLikedVideo() : bool
+    {
+        return $this->likes()->where('user_id', auth()->id())->exists();
+    }
+
+    public function userDislikedVideo() : bool
+    {
+        return $this->dislikes()->where('user_id', auth()->id())->exists();
     }
 }
