@@ -167,7 +167,8 @@ input:focus {
 .mic {
     margin-top: 10px;
 }
-.material-icons {
+.material-icons,
+.material-symbols-outlined {
     color: rgb(100, 100, 100);
     padding: 0 7px;
     cursor: pointer;
@@ -272,7 +273,8 @@ hr {
 }
 
 .title a,
-.title span,.side-bar span {
+.title span,
+.side-bar span {
     text-decoration: none;
     color: rgb(96, 96, 96);
     font-size: 12px;
@@ -298,4 +300,3 @@ hr {
     height: 490px;
     position: relative;
 }
-
