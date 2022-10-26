@@ -25,4 +25,14 @@ class Channel extends Model
     {
         return $this->hasMany(Video::class);
     }
+
+    public function subscribers()
+    {
+        return $this->hasMany(Subscriber::class);
+    }
+
+    public function userSubscribed() : bool
+    {
+        return $this->subscribers()->where('user_id', auth()->id())->exists();
+    }
 }

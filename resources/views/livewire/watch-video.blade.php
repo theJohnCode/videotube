@@ -52,7 +52,7 @@
                     <div class="col-md-4">
                         <div class="row">
                             <div class="col-md-6">
-                                <button class="btn btn-light btn-sm">SUBSCRIBE</button>
+                                <livewire:video.subscribe-button :channel="$video->channel">
                             </div>
                             <div class="col-md-3">
                                 <i class="material-icons">notifications_active</i>

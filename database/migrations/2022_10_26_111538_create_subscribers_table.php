@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('subscribers', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('channel_id')->constrained('channels')->cascadeOnDelete();
             $table->timestamps();
         });
     }

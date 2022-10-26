@@ -51,4 +51,5 @@ class User extends Authenticatable
     {
         return $this->id == $video->channel->user_id;
     }
+
 }

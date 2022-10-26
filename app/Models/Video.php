@@ -13,6 +13,10 @@ class Video extends Model
 
     protected $guarded = [];
 
+    protected $withCount =  [
+        'likes',
+    ];
+
     public function channel()
     {
         return $this->belongsTo(Channel::class);

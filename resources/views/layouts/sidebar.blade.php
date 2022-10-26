@@ -1,6 +1,6 @@
 <div class="side-bar">
     <div class="nav">
-      <a class="nav-link active">
+      <a href="{{ route('home') }}" class="nav-link active">
         <i class="material-icons">home</i>
         <span>Home</span>
       </a>
