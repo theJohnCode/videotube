@@ -15,7 +15,7 @@
                     </div>
                     <div class="title">
                         <h3>{{ ucwords($video->title) }}</h3>
-                        <a href=""> Francesco Ciulla </a>
+                        <a href=""> {{ ucwords($video->channel->name) }} </a>
                         <span> {{ $video->views }} Views • {{ $video->created_at->diffForHumans() }} </span>
                     </div>
                 </div>
