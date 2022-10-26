@@ -16,12 +16,19 @@ class VotingUp extends Component
     public function mount(Video $video)
     {
         $this->video = $video;
+        $this->checkIfLiked();
+    }
+
+    public function checkIfLiked()
+    {
+        return $this->video->userLikedVideo() ? $this->likesActive = true : $this->likesActive = false;
     }
 
     public function render()
     {
         $this->likes = $this->video->likes->count();
-        return view('livewire.video.voting-up');
+
+        return view('livewire.video.voting-up')->extends('layouts.master');
     }
 
     public function like()
@@ -40,6 +47,7 @@ class VotingUp extends Component
             Like::where('user_id', auth()->id())
                 ->where('video_id', $this->video->id)
                 ->delete();
+
             $this->likesActive = false;
         } else {
             $this->video->likes()->create([

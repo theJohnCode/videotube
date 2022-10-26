@@ -10,8 +10,8 @@
         {{-- Video Player --}}
         <div class="row">
             <div class="col-md-12">
-                <div class="video-container">
-                    <video controls preload="auto" autoplay id="videotube" wire:ignore
+                <div class="video-container" wire:ignore>
+                    <video controls preload="auto" id="videotube"
                         class="video-js vjs-fill vjs-theme-city vjs-big-play-centered" data-setup='{}'>
                         <source src="{{ asset('videos/' . $video->uid . '/' . $video->processed_file) }}"
                             type="application/x-mpegURL" />
@@ -115,7 +115,7 @@
                     <div class="card-body" style="padding: 8px;">
                         <form>
                             <div class="row mb-3">
-                                <label for="channel" class="col-md-3 col-form-label text-md-end">Comments  |</label>
+                                <label for="channel" class="col-md-3 col-form-label text-md-end">Comments |</label>
                                 <div class="col-md-1" style="margin-top: 5px;">
                                     <img src="{{ asset('assets/images/dummy.jpg') }}" style="width: 20px; height: 20px;"
                                         alt="">
@@ -197,20 +197,18 @@
         <script src="//vjs.zencdn.net/7.10.2/video.min.js"></script>
 
         <script>
-            let videotube = videojs('videotube');
+            let videotube = videojs('videotube', {
+                autoplay: true
+            });
 
             videotube.on('timeupdate', function() {
                 if (this.currentTime() > 3) {
+                    // console.log('ok');
                     this.off('timeupdate');
                     Livewire.emit('videoViewed');
+                
                 }
             });
-        </script>
-
-        <script>
-            $(function() {
-                $('[data-toggle="tooltip"]').tooltip()
-            })
         </script>
     @endpush
 </div>

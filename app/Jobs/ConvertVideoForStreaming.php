@@ -17,7 +17,7 @@ use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
 class ConvertVideoForStreaming implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-    
+
     public $tries = 3;
     /**
      * Create a new job instance.
@@ -79,8 +79,9 @@ class ConvertVideoForStreaming implements ShouldQueue
             'processed_file' => $this->video->uid . '.m3u8',
         ]);
 
-       $result = Storage::disk('videos_temp')->delete($this->video->url);
+        $result = Storage::disk('videos_temp')->delete($this->video->url);
 
-       Log::info($this->video->ur. 'video deleted from temp folder');
+        Log::info($this->video->ur . 'video deleted from temp folder');
+        toast('Video Upload successful', 'success');
     }
 }

@@ -16,21 +16,29 @@ class VotingDown extends Component
     public function mount(Video $video)
     {
         $this->video = $video;
+        $this->checkIfDisliked();
     }
 
     public function render()
     {
         $this->dislikes = $this->video->dislikes->count();
-        return view('livewire.video.voting-down');
+
+        return view('livewire.video.voting-down')->extends('layouts.master');
+    }
+
+
+    public function checkIfDisliked()
+    {
+        return $this->video->userDislikedVideo() ? $this->dislikesActive = true : $this->dislikesActive = false;
     }
 
     public function dislike()
     {
-        if ($this->video->userLikedVideo()) {
+        if ($this->video->userDislikedVideo()) {
             Dislike::where('user_id', auth()->id())
                 ->where('video_id', $this->video->id)
                 ->delete();
-                $this->dislikesActive = false;
+            $this->dislikesActive = false;
         } else {
             $this->video->dislikes()->create([
                 'user_id' => auth()->id(),
